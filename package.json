@@ -1,0 +1,139 @@
+{
+  "name": "balanov-pro-enterprise",
+  "version": "2.0.0",
+  "description": "Local-first enterprise AI advisor for verifiable B2B and B2G research, hypotheses and implementation routes.",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "author": {
+    "name": "Баланов Антон Николаевич"
+  },
+  "homepage": "https://balanov.pro/enterprise/",
+  "license": "AGPL-3.0-or-later",
+  "desktopName": "balanov-pro-enterprise.desktop",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "build:xray": "vite build --mode xray",
+    "build:advisor": "vite build --mode advisor",
+    "build:enterprise": "vite build --mode enterprise",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run",
+    "electron:dev": "concurrently -k \"vite --host 127.0.0.1\" \"wait-on http://127.0.0.1:5173 && electron .\"",
+    "dist": "npm run build && electron-builder",
+    "dist:win": "npm run build && node scripts/dist-win.mjs",
+    "dist:win:enterprise": "node scripts/build-desktop.mjs --enterprise && node scripts/dist-win.mjs --enterprise",
+    "dist:win:signed": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-windows-signing.ps1 && npm run build && node scripts/dist-win.mjs --signed",
+    "dist:win:store": "npm run build && node scripts/dist-win.mjs --store",
+    "dist:linux": "npm run build && electron-builder --linux AppImage deb --publish never",
+    "dist:mac": "npm run build && electron-builder --mac dmg zip --publish never"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "lucide-react": "^0.468.0",
+    "mammoth": "^1.13.0",
+    "node-llama-cpp": "^3.22.2",
+    "pdf-parse": "^2.4.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^9.2.1",
+    "electron": "^45.0.0",
+    "electron-builder": "^26.18.0",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5",
+    "wait-on": "^9.0.1"
+  },
+  "overrides": {
+    "simple-git": "4.0.2"
+  },
+  "build": {
+    "appId": "pro.balanov.enterprise.advisor",
+    "productName": "Balanov.PRO Enterprise",
+    "asarUnpack": [
+      "node_modules/node-llama-cpp/**/*",
+      "node_modules/@node-llama-cpp/**/*"
+    ],
+    "files": [
+      "dist/**/*",
+      "!dist/downloads/**/*",
+      "!dist/xray/downloads/**/*",
+      "electron/**/*",
+      "shared/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "icon": "build/icon.png",
+    "executableName": "BAIagent Director",
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico",
+      "legalTrademarks": "BAIagent; A2OS",
+      "requestedExecutionLevel": "asInvoker",
+      "signAndEditExecutable": true
+    },
+    "appx": {
+      "applicationId": "BAIagentDirector",
+      "publisherDisplayName": "Баланов Антон Николаевич",
+      "displayName": "BAIagent Director",
+      "backgroundColor": "#F4F8FF",
+      "showNameOnTiles": true,
+      "languages": [
+        "ru-RU"
+      ],
+      "capabilities": [
+        "runFullTrust",
+        "internetClient",
+        "privateNetworkClientServer"
+      ],
+      "minVersion": "10.0.17763.0",
+      "maxVersionTested": "10.0.28020.0",
+      "artifactName": "BAIagent-Director-Store-${version}-${arch}.${ext}"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Office",
+      "maintainer": "Баланов Антон Николаевич",
+      "syncDesktopName": true,
+      "artifactName": "BAIagent-Director-Linux-${version}-${arch}.${ext}"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.business",
+      "artifactName": "BAIagent-Director-macOS-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false,
+      "runAfterFinish": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "BAIagent Director",
+      "menuCategory": "BAIagent",
+      "installerIcon": "build/installerIcon.ico",
+      "uninstallerIcon": "build/uninstallerIcon.ico",
+      "installerHeader": "build/installerHeader.bmp",
+      "installerSidebar": "build/installerSidebar.bmp",
+      "uninstallerSidebar": "build/installerSidebar.bmp",
+      "installerLanguages": [
+        "ru_RU",
+        "en_US"
+      ],
+      "artifactName": "BAIagent-Director-Setup-Windows-${version}-${arch}.${ext}"
+    },
+    "portable": {
+      "artifactName": "BAIagent-Director-Portable-Windows-${version}-${arch}.${ext}"
+    }
+  }
+}

@@ -1,0 +1,1093 @@
+{
+  "services": [
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "frontend-react",
+      "cluster": "Разработка",
+      "name": "Frontend-разработчик (React/Vue)",
+      "prices": {
+        "junior": 110000,
+        "middle": 200000,
+        "senior": 320000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 990000
+      },
+      "tasks": "Создание сложных и высоконагруженных SPA-приложений. Modern stack: Next.js, Nuxt, TypeScript, Zustand/Vuex",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "frontend-native",
+      "cluster": "Разработка",
+      "name": "Frontend-разработчик (нативный)",
+      "prices": {
+        "junior": null,
+        "middle": 220000,
+        "senior": 350000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 1190000
+      },
+      "tasks": "Высокопроизводительные нативные приложения для iOS (Swift) и Android (Kotlin). Глубокая интеграция с ОС",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "frontend-cross",
+      "cluster": "Разработка",
+      "name": "Кросс-платформенный разработчик",
+      "prices": {
+        "junior": 120000,
+        "middle": 220000,
+        "senior": 350000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 1190000
+      },
+      "tasks": "Разработка под iOS и Android из одной кодовой базы. Flutter, React Native, Kotlin Multiplatform",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "backend-go",
+      "cluster": "Разработка",
+      "name": "Бэкенд (Go)",
+      "prices": {
+        "junior": null,
+        "middle": 250000,
+        "senior": 400000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 1490000
+      },
+      "tasks": "Высоконагруженные и отказоустойчивые микросервисы. Высокая производительность и низкие задержки",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "backend-python",
+      "cluster": "Разработка",
+      "name": "Бэкенд (Python)",
+      "prices": {
+        "junior": null,
+        "middle": 200000,
+        "senior": 300000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 990000
+      },
+      "tasks": "Быстрая разработка сложной бизнес-логики, Data Intensive-приложения. Django, FastAPI, Flask",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "backend-java",
+      "cluster": "Разработка",
+      "name": "Бэкенд (Java/Kotlin)",
+      "prices": {
+        "junior": null,
+        "middle": 230000,
+        "senior": 370000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 1290000
+      },
+      "tasks": "Надёжные, масштабируемые enterprise-решения для финансового и корпоративного сектора. Spring Boot, Micronaut",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "backend-dotnet",
+      "cluster": "Разработка",
+      "name": "Бэкенд (.NET)",
+      "prices": {
+        "junior": null,
+        "middle": 220000,
+        "senior": 350000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 1190000
+      },
+      "tasks": "Корпоративные, надёжные и безопасные решения для enterprise-сегмента. C#, ASP.NET Core, MS SQL",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "fullstack-node",
+      "cluster": "Разработка",
+      "name": "Фулстек (JS + Node)",
+      "prices": {
+        "junior": null,
+        "middle": null,
+        "senior": 400000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 2490000
+      },
+      "tasks": "Полный цикл: от интерфейса до сервера. Идеально для стартапов и быстрого прототипирования. React, Vue, Node.js",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "data-scientist",
+      "cluster": "Разработка",
+      "name": "Data Scientist",
+      "prices": {
+        "junior": null,
+        "middle": 180000,
+        "senior": 300000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 790000
+      },
+      "tasks": "Классические ML-модели, табличные данные, A/B-тесты. Scikit-learn, Pandas, NumPy",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "mlops",
+      "cluster": "Разработка ML/AI",
+      "name": "ML-инженер (MLOps)",
+      "prices": {
+        "junior": null,
+        "middle": 250000,
+        "senior": 420000,
+        "seniorWithAiAgent24x7": null,
+        "integrationOneTime": null
+      },
+      "tasks": "Развёртывание, мониторинг и поддержка ML-моделей в продакшене. Kubernetes, Docker, MLflow, OpenTelemetry",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "cv",
+      "cluster": "Разработка ML/AI",
+      "name": "Инженер компьютерного зрения (CV)",
+      "prices": {
+        "junior": null,
+        "middle": 230000,
+        "senior": 390000,
+        "seniorWithAiAgent24x7": null,
+        "integrationOneTime": null
+      },
+      "tasks": "Обработка и анализ изображений и видео. OpenCV, TensorFlow, PyTorch, YOLO",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "nlp",
+      "cluster": "Разработка ML/AI",
+      "name": "Инженер NLP/LLM",
+      "prices": {
+        "junior": null,
+        "middle": 250000,
+        "senior": 400000,
+        "seniorWithAiAgent24x7": null,
+        "integrationOneTime": null
+      },
+      "tasks": "Работа с языковыми моделями, чат-боты, генерация текста. Hugging Face Transformers, LangChain, RAG",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "genai",
+      "cluster": "Разработка ML/AI",
+      "name": "Инженер по генеративному ИИ",
+      "prices": {
+        "junior": null,
+        "middle": null,
+        "senior": 430000,
+        "seniorWithAiAgent24x7": null,
+        "integrationOneTime": null
+      },
+      "tasks": "Создание и тонкая настройка генеративных моделей (текст, изображение, видео). Stable Diffusion, SORA, GPT, DALL-E",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "ai-architect",
+      "cluster": "Разработка ML/AI",
+      "name": "ИИ-архитектор",
+      "prices": {
+        "junior": null,
+        "middle": null,
+        "senior": 490000,
+        "seniorWithAiAgent24x7": null,
+        "integrationOneTime": null
+      },
+      "tasks": "Проектирование сложных AI-систем, интеграция с инфраструктурой компании. Стратегическая роль",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "prompt",
+      "cluster": "Разработка ML/AI",
+      "name": "Промт-инженер по ИИ",
+      "prices": {
+        "junior": 80000,
+        "middle": 180000,
+        "senior": 250000,
+        "seniorWithAiAgent24x7": null,
+        "integrationOneTime": null
+      },
+      "tasks": "Обеспечение этичности, справедливости и безопасности AI-моделей. Аудит моделей на bias",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "qa-auto",
+      "cluster": "Тестирование",
+      "name": "Автотесты (QA Auto)",
+      "prices": {
+        "junior": null,
+        "middle": 150000,
+        "senior": 250000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 490000
+      },
+      "tasks": "Покрытие регрессионными тестами для стабильности релизов. Selenium, Playwright, PyTest, CI/CD",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "qa-manual",
+      "cluster": "Тестирование",
+      "name": "Ручное тестирование (QA Manual)",
+      "prices": {
+        "junior": 70000,
+        "middle": 130000,
+        "senior": 160000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 190000
+      },
+      "tasks": "Глубокое исследовательское тестирование, Usability и User Experience проверки",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "ux-ui",
+      "cluster": "Дизайн / Аналитика",
+      "name": "UX/UI-дизайнер",
+      "prices": {
+        "junior": 90000,
+        "middle": 140000,
+        "senior": 200000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 390000
+      },
+      "tasks": "Создание интуитивных и конверсионных интерфейсов. Полный цикл: от CJM до UI-китов и дизайн-систем",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "product-analyst",
+      "cluster": "Дизайн / Аналитика",
+      "name": "Продуктовый аналитик",
+      "prices": {
+        "junior": null,
+        "middle": 130000,
+        "senior": 180000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 290000
+      },
+      "tasks": "Превращение данных в гипотезы и решения для роста продукта. SQL, Python, A/B-тесты, Amplitude",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "product-manager",
+      "cluster": "Управление",
+      "name": "Менеджер продукта (PM/PO)",
+      "prices": {
+        "junior": null,
+        "middle": 220000,
+        "senior": 390000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 1190000
+      },
+      "tasks": "Определение стратегии продукта, приоритизация фич, ведение бэклога. Ответственность за метрики и результат",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "tech-lead",
+      "cluster": "Управление",
+      "name": "Техлид (Team Lead)",
+      "prices": {
+        "junior": 200000,
+        "middle": 350000,
+        "senior": 450000,
+        "seniorWithAiAgent24x7": 0,
+        "integrationOneTime": 2490000
+      },
+      "tasks": "Техническое руководство командой разработки и инфраструктуры. Архитектура, код-ревью, менторинг, планирование",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "audit",
+      "cluster": "Дополнительно",
+      "name": "Аудит процессов и инфраструктуры",
+      "prices": {
+        "junior": null,
+        "middle": null,
+        "senior": null,
+        "seniorWithAiAgent24x7": null,
+        "integrationOneTime": null
+      },
+      "offer": "БЕСПЛАТНО + согласие на NDA",
+      "tasks": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "roadmap",
+      "cluster": "Дополнительно",
+      "name": "Дорожная карта + тех.декомпозиция",
+      "prices": {
+        "junior": null,
+        "middle": 1200000,
+        "senior": 1590000,
+        "seniorWithAiAgent24x7": null,
+        "integrationOneTime": null
+      },
+      "tasks": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    },
+    {
+      "currency": "RUB",
+      "unit": null,
+      "id": "supervision",
+      "cluster": "Дополнительно",
+      "name": "Авторский надзор собранных команд",
+      "prices": {
+        "junior": null,
+        "middle": 650000,
+        "senior": 890000,
+        "seniorWithAiAgent24x7": null,
+        "integrationOneTime": null
+      },
+      "tasks": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-price"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "ai-promo",
+      "cluster": "Искусственный интеллект",
+      "client": "FMCG-производитель (ритейл-аналитика)",
+      "task": "Оптимизация бюджета промо-акций без снижения охвата",
+      "scale": "Годовой бюджет 150 млн ₽, ROI промо 1,8. Data Scientist + трейд-маркетинг клиента",
+      "solution": "Модель эластичности спроса, линейное программирование, Python (SciPy, PuLP)",
+      "outcome": "Рост ROI промо с 1,8 до 2,1 (+16,7%)",
+      "result": "Выручка с промо +4,2%, дополнительная прибыль ~27 млн ₽/год при том же бюджете",
+      "comment": "5 месяцев. Основная сложность - очистка исторических данных по акциям и приведение к единому формату",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "ai-ecommerce-personalization",
+      "cluster": "Искусственный интеллект",
+      "client": "Розничный e-commerce (топ-15 РФ)",
+      "task": "Рост конверсии в корзину за счёт персонализации карточек товаров",
+      "scale": "2,1 млн MAU, 700 тыс. сессий/сут. ML-инженер + продуктовый аналитик",
+      "solution": "Коллаборативная фильтрация, A/B-тесты на 5% трафика, Python, CatBoost",
+      "outcome": "Рост конверсии в корзину на +15,6% отн.",
+      "result": "Конверсия 3,2% → 3,7% (+0,5 п.п.), средний чек +4,2%. Доп. выручка ~85 млн ₽/год",
+      "comment": "4 месяца, внедрение в веб и мобильное приложение. Работали совместно с внутренней командой клиента",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "ai-telecom-churn",
+      "cluster": "Искусственный интеллект",
+      "client": "Региональный телеком-оператор",
+      "task": "Снижение оттока абонентов через проактивные кампании",
+      "scale": "400 тыс. абонентов, Churn 3,2%/мес. Data Scientist + CRM-маркетолог клиента",
+      "solution": "ML-модель оттока (XGBoost), триггерные email/sms, платформа клиентской аналитики",
+      "outcome": "Снижение месячного оттока на -12,5% отн.",
+      "result": "Churn 3,2% → 2,8% (−0,4 п.п.), LTV +0,7%. Доп. маржинальная прибыль ~14 млн ₽/год",
+      "comment": "4 месяца на модель, далее постоянный мониторинг дрейфа. Модель обновляется раз в квартал",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "ai-cpa-ltv",
+      "cluster": "Искусственный интеллект",
+      "client": "CPA-сеть (мобильный перфоманс-маркетинг)",
+      "task": "Внедрение ML для прогноза LTV и динамической оптимизации ставок",
+      "scale": "Рекламный бюджет ~40 млн ₽/мес, ~300 тыс. конверсий/мес. ML-инженер + аналитик",
+      "solution": "Градиентный бустинг, потоковая обработка логов, API RTB",
+      "outcome": "Рост маржинальности направления на +4,2% отн.",
+      "result": "ROI кампаний 1,22 → 1,44 (+18% отн.), CPA снижена с 210 до 187 ₽ (−11% отн.). Доп. прибыль ~3,2 млн ₽/мес",
+      "comment": "6 месяцев, включая 2 месяца A/B-тестов. Модель обновляется еженедельно",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "ai-diy-personalization",
+      "cluster": "Искусственный интеллект",
+      "client": "Мобильное приложение (ритейл, DIY-сегмент)",
+      "task": "Запуск AI-персонализации контента и товарных предложений",
+      "scale": "~500 тыс. MAU, 70 тыс. сессий/день. ML-инженер + мобильный разработчик",
+      "solution": "Рекомендательная система (гибридный фильтр), A/B-тесты на 10% пользователей",
+      "outcome": "Рост LTV на +15% отн. (за 6 мес.)",
+      "result": "Конверсия в кросс-продажи 4,5% → 5,0% (+0,5 п.п., или +11% отн.), NPS 34 → 39 (+5,2 пункта). Доп. выручка ~22 млн ₽/год",
+      "comment": "5 месяцев. Наибольший эффект дали персональные подборки в пушах и на главном экране",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "ai-bank-personalization",
+      "cluster": "Искусственный интеллект",
+      "client": "Банк (карточный бизнес, топ-30)",
+      "task": "Персонализация предложений на основе транзакционного поведения",
+      "scale": "~280 тыс. активных карт, оборот по картам ~1,1 млрд ₽/мес. Data Scientist + продуктовая команда банка",
+      "solution": "Психографическая сегментация (k-means), ML-модели склонности к продуктам, A/B-тесты",
+      "outcome": "Рост прибыли сегмента на +3,1% отн.",
+      "result": "Средний оборот на активную карту +42% (с 3,9 тыс. до 5,5 тыс. ₽/мес). Доп. прибыль ~2,1 млн ₽/мес",
+      "comment": "7 месяцев. Требовалась тщательная очистка MCC-кодов и нормализация данных",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "ai-taxi-routing",
+      "cluster": "Искусственный интеллект",
+      "client": "Федеральный сервис такси",
+      "task": "Снижение холостого пробега и времени подачи машины",
+      "scale": "120 тыс. поездок/сут, холостой пробег 38%. ML-инженер + Backend Go",
+      "solution": "Графовые нейросети, эвристики, Kafka, A/B-тест на 3 городах",
+      "outcome": "Снижение холостого пробега на 2,8 п.п., ускорение подачи на 22 с",
+      "result": "Холостой пробег 38% → 35,2%, время подачи 4,5 → 4,1 мин. Экономия ~23 млн ₽/год",
+      "comment": "8 месяцев от пилота до развёртывания. Риск - холодный старт модели в новых городах",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "ai-marketplace-retention",
+      "cluster": "Искусственный интеллект",
+      "client": "Цифровая платформа (маркетплейс услуг)",
+      "task": "Запуск рекомендательной системы для роста удержания",
+      "scale": "~800 тыс. MAU, Retention 30 дн. = 22%. ML-инженер + продуктовый аналитик",
+      "solution": "Коллаборативная + content-based фильтрация, A/B-тест на 15% аудитории",
+      "outcome": "Рост Retention на +5 п.п. (абс.)",
+      "result": "Retention 22% → 27% (+5 п.п.), LTV +0,6%, отток −3% отн. Доп. GMV ~18 млн ₽/год",
+      "comment": "5 месяцев. Основной вклад дали персональные подборки на посадочных экранах",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "ai-review-nlp",
+      "cluster": "Искусственный интеллект",
+      "client": "Сервис отзывов (ритейл, e-com)",
+      "task": "Внедрение NLP-системы для анализа отзывов в реальном времени",
+      "scale": "~50 тыс. отзывов/мес, время модерации ручное >30 мин. NLP-инженер + Backend Python",
+      "solution": "BERT-based классификатор, потоковая обработка (Kafka), REST API",
+      "outcome": "Рост активной аудитории сервиса на +7 500 MAU",
+      "result": "Время обработки отзыва 650 мс (p95), F1-score 87%. Автоматизация 80% модерации. Число жалоб на токсичность снизилось на 34%",
+      "comment": "4 месяца. Рост аудитории связывают с повышением качества и скорости реакции на отзывы",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "ai-payment-fraud",
+      "cluster": "Искусственный интеллект",
+      "client": "Финтех (крупный платёжный сервис)",
+      "task": "ML-скоринг транзакций для снижения фрод-потерь",
+      "scale": "1,2 млн транзакций/мес, средний чек 3 200 ₽, потери 0,38% от оборота. ML-инженер + MLOps",
+      "solution": "Градиентный бустинг, потоковая обработка, интеграция с антифрод-платформой",
+      "outcome": "Снижение потерь на -12% отн., дополнительная чистая прибыль ~27 млн ₽/год",
+      "result": "Потери 0,38% → 0,334% (−0,046 п.п.), False Positive вырос незначительно (+0,02 п.п.). Экономия ~2,25 млн ₽/мес",
+      "comment": "5 месяцев, включая 1 месяц калибровки порогов с бизнесом",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "security-bank-fraud",
+      "cluster": "Кибербезопасность и фрод",
+      "client": "Крупный банк (топ-10)",
+      "task": "Снижение потерь от карточного фрода без роста ложных блокировок",
+      "scale": "2 млн транзакций/мес, потери 0,42% от оборота. ML-инженер + MLOps",
+      "solution": "Ансамбль градиентного бустинга, Kafka Streams, MLflow",
+      "outcome": "Снижение фрод-потерь на -12% отн. без увеличения FP",
+      "result": "Потери 0,42% → 0,37% (−0,05 п.п.), FP 0,3% → 0,28%. Экономия ~31 млн ₽/год",
+      "comment": "6 месяцев. Ключевое требование - время ответа скоринга < 50 мс",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "security-marketplace-fraud",
+      "cluster": "Кибербезопасность и фрод",
+      "client": "Маркетплейс (C2C, 2 млн аккаунтов)",
+      "task": "Выявление и «мягкая» блокировка мошеннических аккаунтов",
+      "scale": "~2 млн зарегистрированных пользователей, доля фрод-аккаунтов 3,5%. ML-инженер + бэкенд",
+      "solution": "Анализ поведенческих аномалий, графовые модели, модульная блокировка",
+      "outcome": "Рост Retention добросовестных пользователей на +25% отн.",
+      "result": "Доля фрод-аккаунтов 3,5% → 1,2%, Churn Rate честных пользователей 8,2% → 6,7% (-1,5 п.п., или -18% отн.). LTV +0,2%",
+      "comment": "5 месяцев. Модель обучалась на размеченных модераторами случаях; мягкая блокировка позволила избежать негатива",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "security-soc",
+      "cluster": "Кибербезопасность и фрод",
+      "client": "Крупный финансовый институт (топ-15)",
+      "task": "Создание центра кибербезопасности (SOC) и управления рисками",
+      "scale": "Ежегодно ~15 целевых атак, из них ~5 успешных ранее. Инженеры по безопасности + аналитики",
+      "solution": "SIEM, SOAR, управление уязвимостями, обучение персонала, регламенты реагирования",
+      "outcome": "Снижение числа успешных кибератак на -41% отн.",
+      "result": "Успешных атак 5 → 3 в год (-40%). Потенциальный предотвращённый ущерб ~150 млн ₽ (из оценки среднего убытка 50 млн на инцидент)",
+      "comment": "9 месяцев. Основной эффект дало внедрение процесса Threat Intelligence и регулярные учения",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "security-dlp-rejected",
+      "cluster": "Кибербезопасность и фрод",
+      "client": "Промышленный холдинг",
+      "task": "Внедрение системы детекции внутренних угроз (DLP)",
+      "scale": "~8 000 рабочих мест, разнородная инфраструктура. Инженер по безопасности + архитектор",
+      "solution": "DLP-решение на базе ML, интеграция с AD и почтовыми серверами",
+      "outcome": "Пилот не принят бизнесом: уровень ложных срабатываний >40%",
+      "result": "На этапе пилота система генерировала в среднем 120 алертов/день на 1000 пользователей, из них лишь 8% требовали реакции. Подразделения жаловались на избыточный контроль",
+      "comment": "Причина - незрелость процессов классификации данных у клиента. Мы передали отчёт с рекомендациями по политикам и повторный план внедрения через 6-12 месяцев",
+      "status": "pilot-rejected",
+      "isUnsuccessful": true,
+      "risk": "Причина - незрелость процессов классификации данных у клиента. Мы передали отчёт с рекомендациями по политикам и повторный план внедрения через 6-12 месяцев",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "transform-saas-performance",
+      "cluster": "Цифровая трансформация",
+      "client": "SaaS B2B-платформа (средний бизнес)",
+      "task": "Ускорение дашбордов и снижение оттока",
+      "scale": "p95 ответа 2,3 с, Churn 8,5%/мес. Backend Go + DevOps",
+      "solution": "Миграция на микросервисы (Go, Kafka), Redis, CDN, редизайн API",
+      "outcome": "Снижение времени ответа на −81%, оттока на 1,6 п.п.",
+      "result": "p95 2,3 с → 420 мс, Churn 8,5% → 6,9%. Доп. ARR ~4,5 млн ₽",
+      "comment": "5 месяцев, плавная миграция без даунтайма. Совместно с CTO клиента",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "transform-bank-microservices",
+      "cluster": "Цифровая трансформация",
+      "client": "Банк розничный (топ-20)",
+      "task": "Миграция мобильного и интернет-банка на микросервисную архитектуру",
+      "scale": "~350 тыс. DAU до миграции. 2 backend-разработчика + DevOps + архитектор",
+      "solution": "Микросервисы (Go, .NET), API gateway, Kubernetes, авто-масштабирование",
+      "outcome": "Рост DAU на +24% за счёт снижения отказов, SLA 99,95%",
+      "result": "DAU 350 тыс. → 434 тыс., время ответа p95 с 1,1 с до 180 мс, количество сбоев снижено в 3 раза",
+      "comment": "10 месяцев. Рост DAU связан не только с архитектурой, но и с параллельным улучшением UX",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "transform-delivery-performance",
+      "cluster": "Цифровая трансформация",
+      "client": "Высоконагруженный сервис доставки",
+      "task": "Ускорение работы ключевого клиентского сервиса",
+      "scale": "~600 тыс. MAU, время ответа p95 2100 мс, удержание 30 дн. = 28%. Backend Go + SRE",
+      "solution": "Микросервисы, оптимизация запросов к БД, Redis, CDN",
+      "outcome": "Ускорение ответа в 10 раз (p95 2100 → 210 мс)",
+      "result": "MAU +5% через 3 месяца, удержание 30 дн. 28% → 32% (+4 п.п.). Отток снизился с 9% до 7,5%/мес. Доп. выручка ~9 млн ₽/год",
+      "comment": "6 месяцев. Основной драйвер - отказ от монолитной БД и введение асинхронной обработки",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "transform-gov-design",
+      "cluster": "Цифровая трансформация",
+      "client": "Федеральный госсервис",
+      "task": "Единая дизайн-система для 22 команд",
+      "scale": "22 команды, разрозненные UI. UX/UI-дизайнер + Frontend-лид",
+      "solution": "Дизайн-система на React, Storybook, UI-kit, регламенты код-ревью",
+      "outcome": "Сокращение времени «макет → код» на -30%, багов вёрстки на −42%",
+      "result": "~1200 чел.-часов экономии в квартал, time-to-market фич -35%",
+      "comment": "10 месяцев параллельного внедрения",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "transform-retail-teams",
+      "cluster": "Цифровая трансформация",
+      "client": "Крупный корпоративный IT (ритейл)",
+      "task": "Цифровая трансформация 38 команд разработки",
+      "scale": "38 команд, средний цикл поставки 45 дней, операционные затраты 320 млн ₽/год. Agile-коучи + техлиды",
+      "solution": "Реинжиниринг процессов, внедрение SAFe/Scrum, CI/CD, автоматизация тестирования",
+      "outcome": "Рост рентабельности ИТ на +18% отн.",
+      "result": "Цикл поставки 45 → 35 дней (−22%), операционные затраты снижены на -14% (~45 млн ₽/год). Удовлетворённость бизнес-заказчиков выросла на 23 п.п.",
+      "comment": "12 месяцев. Параллельно шла замена части legacy-систем",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "transform-erp-stopped",
+      "cluster": "Цифровая трансформация",
+      "client": "Машиностроительный завод",
+      "task": "Миграция монолитной ERP на микросервисную архитектуру",
+      "scale": "1 монолит, 400+ хранимых процедур, простой критичен. Архитектор + 2 backend-разработчика",
+      "solution": "Декомпозиция на bounded contexts, Strangler Fig Pattern",
+      "outcome": "Проект остановлен на этапе пилота: полная миграция признана нецелесообразной",
+      "result": "Успешно отделили модуль складского учёта, но дальнейшая декомпозиция требовала полной остановки производства на 3+ дня, что недопустимо. Перешли к плану частичной модернизации",
+      "comment": "Мы рекомендовали обернуть монолит API и развивать новые модули отдельно. Клиент остался доволен честным заключением, сейчас реализуют эту стратегию",
+      "status": "pilot-stopped",
+      "isUnsuccessful": true,
+      "risk": "Мы рекомендовали обернуть монолит API и развивать новые модули отдельно. Клиент остался доволен честным заключением, сейчас реализуют эту стратегию",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "strategy-edtech-conversion",
+      "cluster": "Стратегия и рост продуктов",
+      "client": "EdTech-платформа (средний бизнес)",
+      "task": "Увеличение конверсии в платную подписку",
+      "scale": "150 тыс. MAU, конверсия 4,8%. UX/UI + продуктовый аналитик",
+      "solution": "Редизайн онбординга, адаптивные подсказки, прогрев через email",
+      "outcome": "Рост конверсии в подписку на +14,6% отн.",
+      "result": "Конверсия 4,8% → 5,5% (+0,7 п.п.), отток в первые 7 дней −11% отн. Рост годовой выручки ~19 млн ₽",
+      "comment": "3 месяца, серия A/B-тестов",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "strategy-ecommerce-growth",
+      "cluster": "Стратегия и рост продуктов",
+      "client": "Крупная цифровая экосистема (e-commerce направление)",
+      "task": "Разработка стратегии развития электронной коммерции",
+      "scale": "Оборот маркетплейса ~5 млрд ₽/год, 1200 активных продавцов. Бизнес-консультант + аналитик",
+      "solution": "Анализ рынка, партнёрские программы, оптимизация логистики",
+      "outcome": "Рост EBITDA направления на +3,4% отн.",
+      "result": "GMV 5 млрд → 6,05 млрд (+21%), число продавцов 1200 → 3050 (+1850). Доп. EBITDA ~68 млн ₽/год",
+      "comment": "8 месяцев, комплексная работа с внутренней командой",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "strategy-private-banking",
+      "cluster": "Стратегия и рост продуктов",
+      "client": "Банк (Private Banking, топ-15)",
+      "task": "Реновация цифрового опыта премиум-клиентов",
+      "scale": "~45 тыс. клиентов Private, LTV средний 320 тыс. ₽. UX/UI + CVM-аналитик",
+      "solution": "Редизайн приложения, персонализация предложений, CVM-модели",
+      "outcome": "Рост маржи сегмента на +2,3% отн.",
+      "result": "LTV 320 → 323,5 тыс. (+1,1%), кросс-продажи +16% отн., маржа сегмента выросла с 62% до 63,4%. Доп. прибыль ~52 млн ₽/год",
+      "comment": "7 месяцев, потребовалась интеграция с CRM и изменение процессов персональных менеджеров",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "strategy-manager-app",
+      "cluster": "Стратегия и рост продуктов",
+      "client": "Банк (премиум-сегмент)",
+      "task": "Запуск в мобильном приложении сервиса персонального менеджера",
+      "scale": "~5 200 VIP-клиентов. Мобильный разработчик + Backend + UX",
+      "solution": "Чат с менеджером, push-уведомления, интеграция с CRM",
+      "outcome": "Рост NPS на +11 пунктов",
+      "result": "NPS 47 → 58, удержание клиентов +14% отн. (с 92% до 94,5% годовых), кросс-продажи +18%",
+      "comment": "5 месяцев. Пилот показал, что 70% клиентов предпочли чат звонкам",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "strategy-mvp-exit",
+      "cluster": "Стратегия и рост продуктов",
+      "client": "Стартап (ОАЭ, цифровой банкинг)",
+      "task": "Создание команды и запуск MVP для последующей продажи",
+      "scale": "С нуля до 36 FTE. Agile-коуч + техлид + HR-консультант",
+      "solution": "Построение процессов, найм, онбординг, SCRUM, full-stack разработка",
+      "outcome": "Успешный запуск MVP за 9 месяцев, через 14 месяцев - экзит (продан ICBC Group)",
+      "result": "Сокращение плановых сроков разработки на 12%, продукт вышел на рынок с 50 тыс. пользователей за первые 3 месяца. Детали сделки не раскрываются",
+      "comment": "Мы обеспечили техническую и процессную часть; продажа - заслуга фаундеров",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "product-foodtech-mvp",
+      "cluster": "Разработка цифровых продуктов",
+      "client": "FoodTech стартап",
+      "task": "Запуск MVP доставки наборов с рецептами",
+      "scale": "Стартап, бюджет ограничен. Кросс-платформенный разработчик + Backend Python",
+      "solution": "Flutter, Python/FastAPI, Firebase, платёжный шлюз",
+      "outcome": "MVP за 4 месяца, стоимость на 40% ниже рынка",
+      "result": "2 500 первых заказов, юнит-экономика подтверждена, привлечён следующий раунд",
+      "comment": "Полный цикл \"от идеи до App Store\" (еще до СВО)",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "product-card-booking",
+      "cluster": "Разработка цифровых продуктов",
+      "client": "Банк (Private Banking)",
+      "task": "Онлайн-сервис бронирования времени для выдачи карт и оформления продуктов",
+      "scale": "~5 000 VIP-клиентов, ранее только через звонок. Fullstack-разработчик + UX",
+      "solution": "Разработка веб-приложения, интеграция с CRM и календарём менеджеров",
+      "outcome": "Рост EBITDA Private Banking на +1,8% отн.",
+      "result": "Конверсия в премиум-продукты 2,1% → 2,23% (+6% отн.). Доп. доход ~3,5 млн ₽/год",
+      "comment": "3 месяца. Основная сложность - синхронизация с занятостью менеджеров",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "product-prepaid-cards",
+      "cluster": "Разработка цифровых продуктов",
+      "client": "Банк (розничный)",
+      "task": "Запуск онлайн-сервиса выпуска и доставки предоплаченных карт",
+      "scale": "Целевой сегмент ~200 тыс. клиентов, отток 4,8%/мес. Продуктовый разработчик + Backend",
+      "solution": "End-to-end разработка, оптимизация логистики, цифровой онбординг",
+      "outcome": "Снижение оттока в сегменте на -19% отн.",
+      "result": "Отток 4,8% → 3,89% (−0,91 п.п.). Доп. удержанная выручка ~8,5 млн ₽/год",
+      "comment": "5 месяцев. Клиентский путь сокращён с 5 до 2 дней",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "product-social-onboarding",
+      "cluster": "Разработка цифровых продуктов",
+      "client": "Мобильное приложение (социальная сеть)",
+      "task": "Внедрение адаптивного онбординга для новых пользователей",
+      "scale": "~100 тыс. новых пользователей/мес, отток в 1-й месяц 38%. ML-инженер + мобильный разработчик",
+      "solution": "Адаптивные сценарии, A/B-тесты, анализ поведенческих паттернов",
+      "outcome": "Снижение оттока новых пользователей на -38% отн.",
+      "result": "Отток в 1-й месяц 38% → 23,6% (-14,4 п.п.), LTV +1,1%, MAU +27% через 6 мес.",
+      "comment": "4 месяца. Лучший сценарий - персонализированный онбординг на основе источника трафика",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "product-agent-b2b",
+      "cluster": "Разработка цифровых продуктов",
+      "client": "Крупный ритейл / Логистика",
+      "task": "B2B-платформа для агентов с автоматизацией процессов",
+      "scale": "850 000+ зарегистрированных агентов, SLA до старта 98,5%. Fullstack + DevOps",
+      "solution": "B2B-платформа, workflow automation, интеграции с ERP",
+      "outcome": "Привлечено 850K+ агентов, SLA повышен до 99,92%",
+      "result": "TCO снижен на -15% (экономия ~22 млн ₽/год), количество ручных операций сокращено на 60%",
+      "comment": "10 месяцев, включая миграцию агентов со старой системы",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "product-fitness-failed",
+      "cluster": "Разработка цифровых продуктов",
+      "client": "Фитнес-стартап",
+      "task": "Разработка мобильного приложения для персональных тренировок",
+      "scale": "Стартап, 3 основателя. Flutter-разработчик + Backend Node.js",
+      "solution": "Flutter, Node.js, интеграция с платежами",
+      "outcome": "Продукт не взлетел: приложение технически работало стабильно, но не набрало аудиторию",
+      "result": "За 4 месяца после запуска - 800 установок при плане 10 000. Причина: неэффективная маркетинговая стратегия основателей (не наша зона). Стартап закрылся через 7 месяцев",
+      "comment": "Мы сдали MVP в срок и бюджет, но рынок не был валидирован. Вероятно, надо настаивать на pre-MVP-исследовании спроса",
+      "status": "market-failed",
+      "isUnsuccessful": true,
+      "risk": "Мы сдали MVP в срок и бюджет, но рынок не был валидирован. Вероятно, надо настаивать на pre-MVP-исследовании спроса",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "optimization-gov-design",
+      "cluster": "Оптимизация и автоматизация",
+      "client": "Государственный сектор (региональный портал)",
+      "task": "Создание типовой дизайн-системы для ускорения разработки",
+      "scale": "8 команд, 80+ экранных форм. UX/UI + Frontend-лид",
+      "solution": "Дизайн-система на Vue, UI-kit, документация",
+      "outcome": "Экономия ~800 чел.-часов за первый квартал после внедрения",
+      "result": "Время на вёрстку новой формы сократилось с 12 до 7 часов (-42%), количество визуальных багов снизилось на 35%",
+      "comment": "6 месяцев. Особенность - tight integration с существующей state management библиотекой",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "optimization-logistics-paused",
+      "cluster": "Оптимизация и автоматизация",
+      "client": "Логистическая B2B-платформа (средний бизнес)",
+      "task": "Сократить время ручного планирования маршрутов вдвое",
+      "scale": "Планирование 4 ч/день, ожидание 2 ч. ML-инженер + аналитик",
+      "solution": "OR-Tools, эвристики, интеграция с данными о пробках",
+      "outcome": "Проект приостановлен: время сократилось на −42%, но точность упала",
+      "result": "Время 4 ч → 2,3 ч, однако опоздания выросли с 5% до 7%. Бизнес не принял результат",
+      "comment": "Причина: низкое качество адресов и временных окон. Обязательный аудит данных до разработки основателем был недоступен из-за опасения промышленного шпионажа. Позже перезапущен успешно",
+      "status": "paused",
+      "isUnsuccessful": true,
+      "risk": "Причина: низкое качество адресов и временных окон. Обязательный аудит данных до разработки основателем был недоступен из-за опасения промышленного шпионажа. Позже перезапущен успешно",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "optimization-vendor",
+      "cluster": "Оптимизация и автоматизация",
+      "client": "Крупная корпорация (холдинг, ИТ-бюджет ~5 млрд ₽/год)",
+      "task": "Консолидация ИТ-поставщиков и оптимизация бюджета",
+      "scale": "~200 поставщиков, TCO инфраструктуры 1,1 млрд ₽/год. ИТ-консультант + закупщик клиента",
+      "solution": "Аудит затрат, vendor management, переговоры, консолидация до 50 ключевых партнёров",
+      "outcome": "Годовая экономия ~640 млн ₽",
+      "result": "TCO снижен на −12% (−132 млн ₽ по инфраструктуре), остальное - пересмотр SLA и отказ от дублирующих контрактов. EBITDA холдинга +1,2%",
+      "comment": "7 месяцев, реализовано совместно с финансовым департаментом",
+      "status": "reported",
+      "isUnsuccessful": false,
+      "risk": null,
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    },
+    {
+      "id": "optimization-insurance-stopped",
+      "cluster": "Оптимизация и автоматизация",
+      "client": "Страховая компания",
+      "task": "Автоматизация ручного андеррайтинга с помощью ML",
+      "scale": "~15 тыс. заявок/мес, среднее время обработки 35 мин. ML-инженер + бизнес-аналитик",
+      "solution": "Модель классификации рисков, интеграция с CRM",
+      "outcome": "Проект не перешёл в эксплуатацию: модель готова, но андеррайтеры сопротивлялись",
+      "result": "Точность модели AUC 0,89, время обработки сокращалось до 2 мин. Однако заинтересанты воспротивились сокращению штата, и руководство отложило внедрение на неопределённый срок",
+      "comment": "Мы выполнили ТЗ, модель валидирована. Риск был в управлении изменениями, мы предупреждали клиента на старте",
+      "status": "not-deployed",
+      "isUnsuccessful": true,
+      "risk": "Мы выполнили ТЗ, модель валидирована. Риск был в управлении изменениями, мы предупреждали клиента на старте",
+      "evidence": {
+        "source": "Прайс и кейсы Balanov.PRO",
+        "kind": "vendor-case"
+      }
+    }
+  ]
+}

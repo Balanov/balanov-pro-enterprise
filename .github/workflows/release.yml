@@ -1,0 +1,37 @@
+name: test-and-release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  windows-enterprise:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run dist:win:enterprise
+      - uses: actions/upload-artifact@v4
+        with:
+          name: balanov-pro-enterprise-windows
+          path: |
+            release-enterprise/*.exe
+            release-enterprise/latest.yml
+          if-no-files-found: error
+      - name: Attach artifacts to tagged release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release-enterprise/*.exe
+            release-enterprise/latest.yml
