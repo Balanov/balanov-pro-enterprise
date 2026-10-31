@@ -507,7 +507,7 @@ function search_provider(string $query): array {
 function resolve_entity_site(string $input): array {
     $items = search_provider('"' . clean_text($input) . '" официальный сайт');
     $tokens = preg_split('/[^\p{L}\p{N}]+/u', lower_text(clean_text($input)), -1, PREG_SPLIT_NO_EMPTY) ?: [];
-    $tokens = array_values(array_filter($tokens, fn($token) => strlen($token) >= 8 && !in_array($token, ['официальный', 'сайт', 'страница', 'министерство', 'компания'], true)));
+    $tokens = array_values(array_filter($tokens, fn($token) => strlen($token) >= 3 && !in_array($token, ['официальный', 'сайт', 'страница', 'министерство', 'компания'], true)));
     $candidates = [];
     foreach ($items as $index => $item) {
         $url = (string)($item['url'] ?? ''); $parts = parse_url($url);
