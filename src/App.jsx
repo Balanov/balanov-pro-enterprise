@@ -10,6 +10,9 @@ import {
 import { createEvidenceBasedFallback } from '../shared/fallback.js';
 import { createEnterpriseView } from '../shared/enterprise-view.js';
 import { buildEnterpriseBrief } from '../shared/enterprise-brief.js';
+import { buildEnterpriseProgramBrief } from '../shared/enterprise-program-brief.js';
+import PortfolioPanel from './PortfolioPanel.jsx';
+import './portfolio.css';
 import { AGENT_SOLUTIONS, formatRubles } from '../shared/solutions.js';
 import { ENTERPRISE_LANDING, ENTERPRISE_WINDOWS_DOWNLOAD, RELEASE_VERSION } from '../shared/release.js';
 import { researchErrorMessage } from '../shared/research-error.js';
@@ -19,7 +22,7 @@ import './enterprise-app.css';
 const DESKTOP = typeof window !== 'undefined' && Boolean(window.director?.isDesktop);
 const NAV = [
   { id: 'trust', label: 'Проверка реальности', icon: BadgeCheck },
-  { id: 'hypotheses', label: 'Гипотезы развития', icon: Lightbulb },
+  { id: 'hypotheses', label: 'Программа развития', icon: Lightbulb },
   { id: 'documents', label: 'Данные и доступы', icon: Files },
   { id: 'ecosystem', label: 'Экосистема', icon: Layers3 },
   { id: 'settings', label: 'Модель и безопасность', icon: Settings2 },
@@ -34,7 +37,8 @@ const STAGES = [
   { ids: ['pages'], title: 'Читаем материалы', text: 'Направления, продукты и сервисы' },
   { ids: ['external'], title: 'Проверяем контекст', text: 'Независимые источники и рынок' },
   { ids: ['model', 'thinking'], title: 'Формируем гипотезы', text: 'Локальная модель и ваши рамки' },
-  { ids: ['verification'], title: 'Сверяем выводы', text: 'Цитаты и границы достоверности' },
+  { ids: ['perspectives'], title: 'Строим программу', text: 'Развитие, операции, платформа и защита' },
+  { ids: ['verification'], title: 'Сверяем выводы', text: 'Цитаты, зависимости и границы достоверности' },
 ];
 
 function cx(...values) { return values.filter(Boolean).join(' '); }
@@ -48,17 +52,23 @@ function openLink(url) {
   else window.open(url, '_blank', 'noopener,noreferrer');
 }
 
+function downloadMarkdown(content, fileName) {
+  const url = URL.createObjectURL(new Blob([content], { type: 'text/markdown;charset=utf-8' }));
+  const anchor = document.createElement('a'); anchor.href = url; anchor.download = fileName; anchor.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
 async function researchOnWeb(input, onProgress) {
-  if (!/^https?:\/\//i.test(input) && !/^[\wа-яё.-]+\.[a-zа-яё]{2,}/i.test(input)) throw new Error('В веб-версии укажите сайт. Поиск по названию доступен в Windows-клиенте.');
-  onProgress({ stage: 'site', message: 'Открываю сайт организации' });
-  const endpoint = import.meta.env.VITE_RESEARCH_ENDPOINT || 'https://baiagent.ru/xray/api/research.php';
+  onProgress({ stage: 'site', message: 'Определяю организацию и открываю её сайт' });
+  const endpoint = import.meta.env.VITE_RESEARCH_ENDPOINT || 'https://balanov.pro/enterprise/api/research.php';
   const response = await fetch(`${endpoint}?url=${encodeURIComponent(input)}`);
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(data.error || `Сервер исследования: HTTP ${response.status}`);
   onProgress({ stage: 'thinking', message: 'Формирую проверяемые гипотезы' });
   const analysis = createEvidenceBasedFallback(data.sources, data.requestedUrl, data);
-  onProgress({ stage: 'verification', message: 'Проверяю цитаты и источники' });
+  onProgress({ stage: 'perspectives', message: 'Сопоставляю сценарии развития, операции, платформу и защиту' });
   const result = { research: data, analysis };
+  onProgress({ stage: 'verification', message: 'Проверяю цитаты, этапы и источники' });
   return { ...result, enterprise: createEnterpriseView(result, input) };
 }
 
@@ -202,7 +212,7 @@ function DocumentsPanel({ view, selected, onAdd, onFolder, onForget, busy }) {
   return <div className="documents-panel"><div className="section-intro"><div><span className="stage-number"><Files size={18} /></span><div><h2>Данные и доступы</h2><p>Добавляйте только то, что вправе передать. Секреты и пароли не нужны.</p></div></div></div>
     <div className="access-actions"><button onClick={onAdd} disabled={!DESKTOP || busy}><FilePlus2 size={24} /><strong>Добавить документы</strong><span>PDF, DOCX, TXT, MD, CSV, JSON</span><ArrowRight size={18} /></button><button onClick={onFolder} disabled={!DESKTOP || busy}><FolderInput size={24} /><strong>Разрешить одну папку</strong><span>Предварительный счёт и отдельное подтверждение</span><ArrowRight size={18} /></button></div>
     {!DESKTOP && <p className="subtle-note">Локальное чтение документов доступно в Windows-клиенте.</p>}
-    <section className="document-access-card"><div className="card-title"><div><h3>Что углубит выбранную гипотезу</h3><p>{selected?.title || 'Выберите гипотезу на вкладке «Гипотезы развития»'}</p></div><LockKeyhole size={20} /></div>{selected ? <ul className="access-checklist">{selected.requiredData.map(item => <li key={item}><Plus size={15} /><span>{item}</span><small>Нужно предоставить или подтвердить</small></li>)}</ul> : <EmptyEvidence title="Гипотеза не выбрана" text="Сначала откройте карточку гипотезы." />}</section>
+    <section className="document-access-card"><div className="card-title"><div><h3>Что углубит выбранную инициативу</h3><p>{selected?.title || 'Выберите инициативу на вкладке «Программа развития»'}</p></div><LockKeyhole size={20} /></div>{selected ? <ul className="access-checklist">{selected.requiredData.map(item => <li key={item}><Plus size={15} /><span>{item}</span><small>Нужно предоставить или подтвердить</small></li>)}</ul> : <EmptyEvidence title="Инициатива не выбрана" text="Сначала откройте карточку в программе развития." />}</section>
     <section className="document-access-card"><div className="card-title"><div><h3>Добавлено в эту сессию</h3><p>{view.localDocuments.length} документов · обработка локально</p></div>{view.localDocuments.length > 0 && <button className="text-button" onClick={onForget}>Убрать все</button>}</div>{view.localDocuments.length ? <div className="document-list large">{view.localDocuments.map(document => <div key={document.id}><FileCheck2 size={20} /><span><strong>{document.title}</strong><small>{document.text.length.toLocaleString('ru-RU')} знаков доступно модели</small></span><CheckCircle2 size={18} /></div>)}</div> : <EmptyEvidence title="Пока ничего не добавлено" text="Приложение не сканирует диск самостоятельно. Доступ выдаётся только на выбранные файлы или папку." />}</section>
   </div>;
 }
@@ -263,6 +273,7 @@ export default function App() {
   const [percent, setPercent] = useState(4);
   const [result, setResult] = useState(null);
   const [nav, setNav] = useState('trust');
+  const [scenarioId, setScenarioId] = useState('core');
   const [expanded, setExpanded] = useState(false);
   const [advisorOpen, setAdvisorOpen] = useState(true);
   const [openSections, setOpenSections] = useState(new Set());
@@ -279,7 +290,7 @@ export default function App() {
   const [toast, setToast] = useState('');
   const inputRef = useRef(null);
   const view = result?.enterprise || (result ? createEnterpriseView(result, input) : null);
-  const selected = view?.hypotheses.find(item => item.id === selectedId) || view?.hypotheses[0] || null;
+  const selected = view?.portfolio.initiatives.find(item => item.id === selectedId) || view?.hypotheses.find(item => item.id === selectedId) || view?.portfolio.initiatives[0] || view?.hypotheses[0] || null;
 
   useEffect(() => {
     if (!DESKTOP) return undefined;
@@ -287,7 +298,7 @@ export default function App() {
   }, []);
   useEffect(() => {
     if (phase !== 'working') return undefined;
-    const target = { site: 12, pages: 35, external: 58, model: 67, thinking: 84, verification: 96 }[progress?.stage] || 5;
+    const target = { site: 12, pages: 35, external: 58, model: 67, thinking: 80, perspectives: 91, verification: 97 }[progress?.stage] || 5;
     const timer = setInterval(() => setPercent(value => Math.min(target, value + Math.max(0.2, (target - value) * 0.08))), 150);
     return () => clearInterval(timer);
   }, [phase, progress]);
@@ -296,10 +307,11 @@ export default function App() {
   function applyResult(data) {
     const nextView = data.enterprise || createEnterpriseView(data, input);
     setResult({ ...data, enterprise: nextView });
-    setSelectedId(nextView.hypotheses[0]?.id || null);
+    setSelectedId(nextView.portfolio.initiatives[0]?.id || nextView.hypotheses[0]?.id || null);
+    setScenarioId('core');
     setRoutes({});
     setOpenSections(new Set());
-    setMessages([{ role: 'advisor', text: `Профиль «${nextView.entity.name}» собран. Я отделяю подтверждённые факты от гипотез и могу объяснить любой шаг, источник или маршрут реализации.` }]);
+    setMessages([{ role: 'advisor', text: `Профиль «${nextView.entity.name}» собран: ${nextView.portfolio.counts.initiatives} инициатив для обследования. Я отделяю подтверждённые факты от программных гипотез и могу объяснить любой этап, источник или маршрут реализации.` }]);
     setPhase('result'); setNav('trust'); setPercent(100); setError('');
   }
 
@@ -345,12 +357,26 @@ export default function App() {
         const response = await window.director.savePilot(hypothesis.id);
         if (response.saved) setToast('Управленческий бриф сохранён.');
       } else {
-        const content = buildEnterpriseBrief(view, hypothesis);
-        const url = URL.createObjectURL(new Blob([content], { type: 'text/markdown;charset=utf-8' }));
-        const anchor = document.createElement('a'); anchor.href = url; anchor.download = `${safeFileName(view.entity.name)}-brief.md`; anchor.click();
-        setTimeout(() => URL.revokeObjectURL(url), 1000); setToast('Бриф передан в загрузки браузера.');
+        downloadMarkdown(buildEnterpriseBrief(view, hypothesis), `${safeFileName(view.entity.name)}-brief.md`);
+        setToast('Бриф передан в загрузки браузера.');
       }
     } catch (reason) { setError(reason.message); }
+  }
+  async function saveProgram(scenario) {
+    try {
+      if (DESKTOP) {
+        const response = await window.director.saveProgram(scenario.id);
+        if (response.saved) setToast('Программа развития сохранена.');
+      } else {
+        downloadMarkdown(buildEnterpriseProgramBrief(view, scenario), `${safeFileName(view.entity.name)}-program.md`);
+        setToast('Программа передана в загрузки браузера.');
+      }
+    } catch (reason) { setError(reason.message); }
+  }
+  function contactProgram(scenario) {
+    const commercial = scenario.commercial;
+    const body = `Здравствуйте! Хочу обсудить программу цифрового развития для «${view.entity.name}».\n\nСценарий: ${scenario.title}\nИнициатив для обследования: ${commercial.initiativeCount}\nАгентных решений: ${commercial.solutionCount}\nКаталожные установки: ${commercial.setupLabel}\nПодписки: ${commercial.monthlyLabel || 'не выбраны'}\n\nПонимаю, что ставки специалистов и интеграционные позиции не складываются в этот ориентир. Прошу провести обследование и подтвердить приоритеты, состав, сроки, правовые рамки и отдельные виды стоимости.`;
+    openLink(`mailto:office@balanov.pro?subject=${encodeURIComponent(`Программа развития: ${view.entity.name}`)}&body=${encodeURIComponent(body)}`);
   }
   function contact(hypothesis) {
     const subject = `Balanov.PRO Enterprise: ${view.entity.name}`;
@@ -398,10 +424,10 @@ export default function App() {
       {error && <div className="error-banner"><CircleAlert size={17} /><span>{error}</span><button onClick={() => setError('')}><X size={16} /></button></div>}
       {phase === 'working' ? <Working input={input} progress={progress} percent={percent} /> : !view && !['ecosystem', 'settings'].includes(nav) ? <Welcome input={{ value: input, set: setInput, ref: inputRef }} setInput={setInput} onStart={start} onDemo={demo} busy={phase === 'working'} /> : view ? <div className={cx('workspace', advisorOpen && 'with-advisor')}>
         <main className="workspace-main"><EntityHeader view={view} onDocuments={goDocuments} onRestart={restart} />
-          <div className="stage-tabs"><button className={cx(nav === 'trust' && 'active')} onClick={() => setNav('trust')}><span>01</span>Проверка реальности<BadgeCheck size={17} /></button><button className={cx(nav === 'hypotheses' && 'active')} onClick={() => setNav('hypotheses')}><span>02</span>Гипотезы развития<Lightbulb size={17} /></button></div>
+          <div className="stage-tabs"><button className={cx(nav === 'trust' && 'active')} onClick={() => setNav('trust')}><span>01</span>Проверка реальности<BadgeCheck size={17} /></button><button className={cx(nav === 'hypotheses' && 'active')} onClick={() => setNav('hypotheses')}><span>02</span>Программа развития<Lightbulb size={17} /></button></div>
           <div className="workspace-content">
             {nav === 'trust' && <TrustPanel view={view} openSections={openSections} toggleSection={toggleSection} goDocuments={goDocuments} />}
-            {nav === 'hypotheses' && <HypothesesPanel view={view} openSections={openSections} toggleSection={toggleSection} routes={routes} setRoute={(id, route) => { setRoutes(current => ({ ...current, [id]: route })); setSelectedId(id); }} onSave={saveBrief} onContact={contact} onGenerate={() => setGenerateOpen(true)} onSelect={setSelectedId} generating={generating} />}
+            {nav === 'hypotheses' && <PortfolioPanel view={view} scenarioId={scenarioId} onScenario={setScenarioId} openSections={openSections} toggleSection={toggleSection} routes={routes} setRoute={(id, route) => { setRoutes(current => ({ ...current, [id]: route })); setSelectedId(id); }} onSave={saveBrief} onContact={contact} onGenerate={() => setGenerateOpen(true)} onSelect={setSelectedId} generating={generating} onSaveProgram={saveProgram} onContactProgram={contactProgram} onOpenLink={openLink} />}
             {nav === 'documents' && <DocumentsPanel view={view} selected={selected} onAdd={() => addDocuments(false)} onFolder={() => addDocuments(true)} onForget={forgetDocuments} busy={documentsBusy} />}
             {nav === 'ecosystem' && <EcosystemPanel />}
             {nav === 'settings' && <SettingsPanel models={models} selectedModel={selectedModel} onModel={changeModel} onRefresh={refreshModels} view={view} />}

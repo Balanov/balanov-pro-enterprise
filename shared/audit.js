@@ -1203,7 +1203,7 @@ export function enrichAuditOpportunities({ opportunities = [], research = {}, ma
   const industry = industryFor(profile, research);
   const catalog = catalogAssessment(market, profile, research);
   const prepared = attachProcessEvidence(opportunities, { research, market, profile });
-  const enriched = prepared.slice(0, 3).flatMap((opportunity, order) => {
+  const enriched = prepared.slice(0, 8).flatMap((opportunity, order) => {
     const category = CATEGORIES.includes(opportunity?.category) ? opportunity.category : null;
     if (!category) return [];
     const plan = planFor(industry, category, opportunity, market, profile, research);
@@ -1249,17 +1249,18 @@ export function enrichAuditOpportunities({ opportunities = [], research = {}, ma
     return [{ item: base, score, order }];
   });
 
-  const bestByCategory = new Map();
+  const bestByProcess = new Map();
   for (const candidate of enriched) {
-    const previous = bestByCategory.get(candidate.item.category);
+    const key = `${candidate.item.category}|${candidate.item.processName}|${candidate.item.solutionId || 'custom'}`;
+    const previous = bestByProcess.get(key);
     if (!previous || candidate.score > previous.score || (candidate.score === previous.score && candidate.order < previous.order)) {
-      bestByCategory.set(candidate.item.category, candidate);
+      bestByProcess.set(key, candidate);
     }
   }
 
-  return [...bestByCategory.values()]
+  return [...bestByProcess.values()]
     .sort((left, right) => right.score - left.score || left.order - right.order || CATEGORY_ORDER.get(left.item.category) - CATEGORY_ORDER.get(right.item.category))
-    .slice(0, 3)
+    .slice(0, 8)
     .map(({ item }, index) => ({
       ...item,
       priority: { ...item.priority, rank: index + 1, label: priorityLabel(index + 1) },

@@ -15,7 +15,7 @@ export const ANALYSIS_SCHEMA = {
     companyName: { type: 'string' },
     summary: { type: 'string' },
     opportunities: {
-      type: 'array', minItems: 1, maxItems: 3,
+      type: 'array', minItems: 1, maxItems: 8,
       items: {
         type: 'object', additionalProperties: false,
         required: ['title', 'category', 'why', 'action', 'metric', 'confidence', 'unknowns', 'evidence'],
@@ -164,7 +164,10 @@ function verify(raw, sources, { finalObject = false } = {}) {
       ...(finalObject ? { processEvidence } : {}),
       status: 'hypothesis',
     };
-  }).filter(Boolean).filter((item, index, items) => items.findIndex(other => other.category === item.category) === index).slice(0, 3).map((item, index) => ({ ...item, id: finalObject && item.id ? item.id : `opportunity-${index + 1}` }));
+  }).filter(Boolean).filter((item, index, items) => {
+    const signature = normalizeEvidenceText(`${item.title}|${item.processName || ''}|${item.action || ''}`);
+    return signature && items.findIndex(other => normalizeEvidenceText(`${other.title}|${other.processName || ''}|${other.action || ''}`) === signature) === index;
+  }).slice(0, 8).map((item, index) => ({ ...item, id: finalObject && item.id ? item.id : `opportunity-${index + 1}` }));
   const categories = new Set(['strength', 'weakness', 'opportunity', 'threat']);
   const swot = (Array.isArray(raw?.swot) ? raw.swot : []).map(item => {
     const evidence = verifiedEvidence(item?.evidence, item);

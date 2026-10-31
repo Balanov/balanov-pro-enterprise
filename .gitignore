@@ -32,3 +32,5 @@ test-results/
 preview-desktop.cmd
 site-deploy/
 enterprise-deploy-*.tar.gz
+tools/
+build/electron-*/

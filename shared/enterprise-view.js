@@ -1,5 +1,6 @@
 import { getSolution, formatRubles } from './solutions.js';
 import { enterpriseRecommendations } from './enterprise.js';
+import { buildOpportunityPortfolio } from './opportunity-portfolio.js';
 
 export const ENTITY_KINDS = {
   company: 'Компания',
@@ -141,6 +142,7 @@ export function createEnterpriseView(result, input = '') {
       vendorEvidence: recommendation,
     };
   });
+  const portfolio = buildOpportunityPortfolio({ research, analysis, kind });
   return {
     entity: {
       name: research.companyName || analysis.companyName || 'Организация не определена',
@@ -161,6 +163,8 @@ export function createEnterpriseView(result, input = '') {
       localDocuments: localDocuments.length,
       sources: research.sources?.length || 0,
       hypotheses: hypotheses.length,
+      initiatives: portfolio.counts.initiatives,
+      portfolioSolutions: portfolio.counts.solutions,
     },
     offerings: research.offerings || [],
     reviews: research.reviews || [],
@@ -171,6 +175,8 @@ export function createEnterpriseView(result, input = '') {
     sources: research.sources || [],
     localDocuments,
     hypotheses,
+    portfolio,
+    reasoning: analysis.reasoning || null,
     model: {
       mode: analysis.mode || 'evidence-rules',
       warning: analysis.warning || null,

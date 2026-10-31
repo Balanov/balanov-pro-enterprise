@@ -1,7 +1,6 @@
 import { resolve } from 'node:path';
 import { Arch, Platform, build } from 'electron-builder';
 
-delete process.env.ELECTRON_RUN_AS_NODE;
 const signed = process.argv.includes('--signed');
 const enterprise = process.argv.includes('--enterprise');
 const store = process.argv.includes('--store');
@@ -41,6 +40,7 @@ await build({
   config: {
     directories: { output },
     electronDist,
+    ...(process.env.BAIAGENT_WINDOWS_NO_ASAR === '1' ? { asar: false } : {}),
     ...(enterprise ? {
       appId: 'pro.balanov.enterprise.advisor',
       productName: 'Balanov.PRO Enterprise',

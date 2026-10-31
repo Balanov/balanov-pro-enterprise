@@ -12,6 +12,7 @@ contextBridge.exposeInMainWorld('director', {
   advisor: payload => ipcRenderer.invoke('director:advisor', payload),
   resetSession: () => ipcRenderer.invoke('director:reset-session'),
   savePilot: opportunityId => ipcRenderer.invoke('director:save-pilot', opportunityId),
+  saveProgram: scenarioId => ipcRenderer.invoke('director:save-program', scenarioId),
   openExternal: url => ipcRenderer.invoke('director:open-external', url),
   onProgress: callback => {
     const listener = (_event, progress) => callback(progress);

@@ -129,7 +129,7 @@ app.whenReady().then(() => {
     const question = String(payload.question || '').trim().slice(0, 1600);
     if (!question) throw new Error('Напишите вопрос советнику');
     const history = (Array.isArray(payload.history) ? payload.history : []).slice(-8).map(message => ({ role: message.role === 'user' ? 'user' : 'advisor', text: String(message.text || message.answer || '').slice(0, 1400) }));
-    const opportunity = current.analysis.opportunities.find(item => item.id === payload.opportunityId) || current.analysis.opportunities[0];
+    const opportunity = current.enterprise.portfolio.initiatives.find(item => item.id === payload.opportunityId) || current.analysis.opportunities.find(item => item.id === payload.opportunityId) || current.enterprise.portfolio.initiatives[0] || current.analysis.opportunities[0];
     const { chatWithQwen } = await import('./qwen.mjs');
     return chatWithQwen({ question, history, research: current.research, analysis: current.analysis, opportunity, userDataPath: app.getPath('userData'), modelPreference: session.modelPreference });
   });
@@ -140,11 +140,24 @@ app.whenReady().then(() => {
   ipcMain.handle('director:save-pilot', async (event, opportunityId) => {
     const current = sessionFor(event).result;
     if (!current) throw new Error('Нет данных исследования');
-    const opportunity = current.enterprise.hypotheses.find(item => item.id === opportunityId);
-    if (!opportunity) throw new Error('Выбранная гипотеза больше недоступна');
+    const opportunity = current.enterprise.hypotheses.find(item => item.id === opportunityId) || current.enterprise.portfolio.initiatives.find(item => item.id === opportunityId);
+    if (!opportunity) throw new Error('Выбранная инициатива больше недоступна');
     const { buildEnterpriseBrief } = await import('../shared/enterprise-brief.js');
     const content = buildEnterpriseBrief(current.enterprise, opportunity);
     const picked = await dialog.showSaveDialog({ title: 'Сохранить управленческий бриф', defaultPath: 'Balanov-PRO-Enterprise-brief.md', filters: [{ name: 'Markdown', extensions: ['md'] }] });
+    if (picked.canceled || !picked.filePath) return { status: 'canceled', saved: false };
+    await fs.writeFile(picked.filePath, content, 'utf8');
+    return { status: 'completed', saved: true, path: picked.filePath };
+  });
+  ipcMain.handle('director:save-program', async (event, scenarioId) => {
+    const current = sessionFor(event).result;
+    if (!current) throw new Error('Нет данных исследования');
+    const { selectPortfolioScenario } = await import('../shared/opportunity-portfolio.js');
+    const scenario = selectPortfolioScenario(current.enterprise.portfolio, String(scenarioId || 'core'));
+    if (!scenario) throw new Error('Выбранный сценарий больше недоступен');
+    const { buildEnterpriseProgramBrief } = await import('../shared/enterprise-program-brief.js');
+    const content = buildEnterpriseProgramBrief(current.enterprise, scenario);
+    const picked = await dialog.showSaveDialog({ title: 'Сохранить программу развития', defaultPath: 'Balanov-PRO-Enterprise-program.md', filters: [{ name: 'Markdown', extensions: ['md'] }] });
     if (picked.canceled || !picked.filePath) return { status: 'canceled', saved: false };
     await fs.writeFile(picked.filePath, content, 'utf8');
     return { status: 'completed', saved: true, path: picked.filePath };

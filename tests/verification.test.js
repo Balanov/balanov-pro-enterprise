@@ -192,11 +192,11 @@ describe('director evidence map and conversion', () => {
     const result = verifyAnalysis({ opportunities: [opportunity] }, sources);
     expect(['revenue', 'cost', 'offering']).toContain(result.opportunities[0].category);
   });
-  it('does not show duplicate recommendation categories', () => {
-    const repeated = { ...opportunity, title: 'Увеличить повторные продажи', category: 'revenue' };
-    const result = verifyAnalysis({ opportunities: [opportunity, repeated] }, sources);
-    expect(result.opportunities).toHaveLength(1);
-    expect(new Set(result.opportunities.map(item => item.category)).size).toBe(result.opportunities.length);
+  it('keeps distinct initiatives in one category but removes exact duplicates', () => {
+    const repeated = { ...opportunity, title: 'Проверить маршрут обращения до ответственного', category: 'revenue' };
+    const result = verifyAnalysis({ opportunities: [opportunity, repeated, repeated] }, sources);
+    expect(result.opportunities).toHaveLength(2);
+    expect(new Set(result.opportunities.map(item => item.title)).size).toBe(result.opportunities.length);
   });
   it('keeps all 24 agents and prefills an unsubmitted application', () => {
     expect(AGENT_CATALOG).toHaveLength(24);

@@ -1,6 +1,6 @@
 {
   "name": "balanov-pro-enterprise",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Local-first enterprise AI advisor for verifiable B2B and B2G research, hypotheses and implementation routes.",
   "private": true,
   "type": "module",

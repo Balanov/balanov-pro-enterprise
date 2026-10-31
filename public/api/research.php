@@ -504,6 +504,28 @@ function search_provider(string $query): array {
     if ($items) @file_put_contents($cache, json_encode($items, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES), LOCK_EX);
     return $items;
 }
+function resolve_entity_site(string $input): array {
+    $items = search_provider('"' . clean_text($input) . '" официальный сайт');
+    $tokens = preg_split('/[^\p{L}\p{N}]+/u', lower_text(clean_text($input)), -1, PREG_SPLIT_NO_EMPTY) ?: [];
+    $tokens = array_values(array_filter($tokens, fn($token) => strlen($token) >= 8 && !in_array($token, ['официальный', 'сайт', 'страница', 'министерство', 'компания'], true)));
+    $candidates = [];
+    foreach ($items as $index => $item) {
+        $url = (string)($item['url'] ?? ''); $parts = parse_url($url);
+        if (!$parts || !in_array($parts['scheme'] ?? '', ['http', 'https'], true) || isset($parts['user']) || isset($parts['pass']) || !in_array((string)($parts['port'] ?? ''), ['', '80', '443'], true)) continue;
+        $host = strtolower(preg_replace('~^www\.~', '', $parts['host'] ?? ''));
+        if (!$host || !public_host($host) || preg_match('~(?:^|\.)(?:vk\.com|vk\.ru|facebook\.com|instagram\.com|youtube\.com|t\.me|ok\.ru|irecommend\.ru|otzovik\.com|zoon\.ru|wikipedia\.org|2gis\.[a-z.]+|yandex\.[a-z.]+)$~i', $host)) continue;
+        $haystack = lower_text(($item['title'] ?? '') . ' ' . ($item['text'] ?? '') . ' ' . $url);
+        $matches = 0; foreach ($tokens as $token) if (str_contains($haystack, $token)) $matches++;
+        if (!$matches) continue;
+        $official = preg_match('~официальн|official|министерств|правительств|администрац~iu', ($item['title'] ?? '') . ' ' . ($item['text'] ?? ''));
+        $government = preg_match('~(?:^|\.)gov(?:\.|$)|\.gouv\.|\.go\.[a-z]{2}$~i', $host);
+        $candidates[] = ['title' => limit_text(clean_text((string)($item['title'] ?? '')), 200), 'url' => $url, 'text' => limit_text(clean_text((string)($item['text'] ?? '')), 1000), 'hostname' => $host, 'matches' => $matches, 'score' => $matches * 5 + ($official ? 4 : 0) + ($government ? 2 : 0) - $index * 0.2];
+    }
+    usort($candidates, fn($a, $b) => $b['score'] <=> $a['score']);
+    $candidates = array_slice($candidates, 0, 3);
+    if (!$candidates) fail('Не удалось надёжно найти сайт по названию. Добавьте адрес сайта или уточните организацию.', 422);
+    return $candidates;
+}
 function search_reference_web(string $company): array {
     $items = [];
     try {
@@ -687,8 +709,19 @@ try {
     rate_limit();
     $GLOBALS['research_deadline'] = microtime(true) + 110.0;
     $researchWarnings = [];
-    $requested = normalize_url((string)($_GET['url'] ?? ''));
-    $home = fetch_public($requested);
+    $originalInput = limit_text(clean_text((string)($_GET['url'] ?? '')), 500);
+    if ($originalInput === '') fail('Укажите название организации или сайт');
+    $entityResolution = 'direct'; $entityCandidates = []; $home = null; $requested = $originalInput;
+    if (!preg_match('~^(?:https?://)?(?:www\.)?[a-z0-9а-яё.-]+\.[a-zа-яё]{2,}(?:[/:?#]|$)~iu', $originalInput)) {
+        $entityCandidates = resolve_entity_site($originalInput); $entityResolution = 'candidate';
+        foreach ($entityCandidates as $candidate) {
+            try { $requested = normalize_url($candidate['url']); $home = fetch_public($requested); break; }
+            catch (Throwable $error) { $researchWarnings[] = 'Один из найденных сайтов-кандидатов недоступен.'; }
+        }
+        if (!$home) fail('Не удалось прочитать найденные сайты организации. Укажите адрес сайта вручную.', 422);
+    } else {
+        $requested = normalize_url($originalInput); $home = fetch_public($requested);
+    }
     if (!preg_match('~html|xhtml|text/plain~i', $home['type'])) fail('По адресу нет читаемой веб-страницы');
     $first = parse_page($home['body'], $home['url'], 'site-1');
     $company = company_name_from($first, $requested);
@@ -766,5 +799,5 @@ try {
     }
     $competitors = array_slice($competitors, 0, 12); $news = array_slice($news, 0, 8);
     if (!array_filter($sources, fn($source) => strlen($source['text']) >= 20)) fail('Не удалось получить текст открытых источников', 422);
-    echo encode_json(['requestedUrl' => $home['url'], 'companyName' => $company, 'companyLogo' => $companyLogo, 'sources' => $sources, 'offerings' => $offerings, 'reviews' => $reviews, 'competitors' => $competitors, 'news' => $news, 'alternatives' => array_slice($alternatives, 0, 30), 'marketContext' => ['industry' => $plan['industry'], 'subject' => $plan['subject']], 'coverage' => ['pages' => count($sources) - count($web), 'deepened' => $deepened, 'external' => count($web)], 'warnings' => $warnings, 'createdAt' => gmdate('c')]);
+    echo encode_json(['requestedUrl' => $home['url'], 'originalInput' => $originalInput, 'entityResolution' => $entityResolution, 'entityCandidates' => $entityCandidates, 'companyName' => $company, 'companyLogo' => $companyLogo, 'sources' => $sources, 'offerings' => $offerings, 'reviews' => $reviews, 'competitors' => $competitors, 'news' => $news, 'alternatives' => array_slice($alternatives, 0, 30), 'marketContext' => ['industry' => $plan['industry'], 'subject' => $plan['subject']], 'coverage' => ['pages' => count($sources) - count($web), 'deepened' => $deepened, 'external' => count($web)], 'warnings' => $warnings, 'createdAt' => gmdate('c')]);
 } catch (Throwable $error) { fail($error->getMessage(), 422); }
